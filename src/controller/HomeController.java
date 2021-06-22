@@ -26,17 +26,34 @@ public class HomeController {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu menuCadastro = new JMenu("Cadastro");
-        JMenu menuPedidos = new JMenu("Fazer Pedido");
+        JMenu menuPedidos = new JMenu("Pedidos");
 
-        JMenuItem menuItemCadastroCliente = new JMenuItem("Cadastro de Cliente");
         JMenuItem menuItemCadastroPizza = new JMenuItem("Cadastro de Pizzas");
+        JMenuItem menuItemCadastroPedido = new JMenuItem("Fazer Pedido");
 
-        menuCadastro.add(menuItemCadastroCliente);
         menuCadastro.add(menuItemCadastroPizza);
+        menuPedidos.add(menuItemCadastroPedido);
 
 
         menuBar.add(menuCadastro);
         menuBar.add(menuPedidos);
+
+        menuItemCadastroPizza.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CadastroPizzaController cadastro = new CadastroPizzaController();
+
+            }
+        });
+
+        menuItemCadastroPedido.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PedidosController pedidos = new PedidosController();
+            }
+        });
+
+
 
 
 
