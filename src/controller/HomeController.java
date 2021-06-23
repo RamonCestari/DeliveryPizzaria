@@ -12,7 +12,7 @@ public class HomeController {
 
         JMenuBar menuBar = getMenuBar();
 
-        JFrame frame = new JFrame("Delivery");
+        JFrame frame = new JFrame("Sistema de Pedidos");
         frame.setContentPane(new HomeController().jPanelHome);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

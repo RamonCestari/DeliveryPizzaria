@@ -1,6 +1,8 @@
 package controller;
 
+import dao.PedidosDAO;
 import model.Cliente;
+import model.Pedido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,13 +40,14 @@ public class PedidosController {
         jButtonCadastrarPedido.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Cliente cliente = new Cliente();
-                cliente.setNome(jTextFieldNome.getText());
-                cliente.setEndereco(jTextFieldEndereco.getText());
-                cliente.setTelefone(jTextFieldTelefone.getText());
+                Pedido pedido = new Pedido();
+                pedido.setSeuPedido(jTextDFieldPedido.getText());
+                pedido.setNome(jTextFieldNome.getText());
+                pedido.setEndereco(jTextFieldEndereco.getText());
+                pedido.setTelefone(jTextFieldTelefone.getText());
 
-                Cliente clienteDAO = new Cliente();
-                Cliente.salvar(cliente)
+                PedidosDAO dao = new PedidosDAO();
+                dao.salvar(pedido);
 
 
             }
