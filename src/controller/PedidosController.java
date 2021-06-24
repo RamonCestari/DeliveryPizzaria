@@ -1,7 +1,5 @@
 package controller;
 
-import dao.PedidosDAO;
-import model.Cliente;
 import model.Pedido;
 
 import javax.swing.*;
@@ -45,9 +43,19 @@ public class PedidosController {
                 pedido.setNome(jTextFieldNome.getText());
                 pedido.setEndereco(jTextFieldEndereco.getText());
                 pedido.setTelefone(jTextFieldTelefone.getText());
+                if (jRadioButtonPequena.isSelected()) {
+                    pedido.setTamanho("Pequena");
+                    pedido.setValor(20.00);
+                } else if (jRadioButtonMedia.isSelected()){
+                    pedido.setTamanho("Média");
+                    pedido.setValor(30.00);
+                } else {
+                    pedido.setTamanho("Grande");
+                    pedido.setValor(40.00);
+                }
 
-                PedidosDAO dao = new PedidosDAO();
-                dao.salvar(pedido);
+                VisualizacaoController vc = new VisualizacaoController(pedido);
+
 
 
             }

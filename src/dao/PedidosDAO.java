@@ -11,8 +11,9 @@ import java.util.ArrayList;
 
 public class PedidosDAO {
     public void salvar(Pedido pd){
-        String insert = "INSERT INTO pedidos (seu_pedido, nome, endereco, telefone)"+
-            "VALUES(?,?,?,?)";
+        String insert = "INSERT INTO pedidos (seu_pedido, nome, endereco, telefone, valor, tamanho)"+
+            "VALUES(?,?,?,?,?,?)";
+
 
         PreparedStatement ps = null;
         try {
@@ -21,6 +22,10 @@ public class PedidosDAO {
             ps.setObject(2,pd.getNome());
             ps.setObject(3,pd.getEndereco());
             ps.setObject(4,pd.getTelefone());
+            ps.setObject(5,pd.getValor());
+            ps.setObject(6,pd.getTamanho());
+
+
 
 
             ps.execute();
@@ -47,6 +52,8 @@ public class PedidosDAO {
                 pd.setNome(rs.getString("nome"));
                 pd.setEndereco(rs.getString("endereco"));
                 pd.setTelefone(rs.getString("telefone"));
+                pd.setValor(rs.getDouble("valor"));
+                pd.setTamanho(rs.getString("tamanho"));
 
                 pedido.add(pd);
             }
